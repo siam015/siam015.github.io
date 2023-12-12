@@ -2,6 +2,11 @@
   {
     "listing": "/index.html",
     "items": [
+      "/posts/Anomaly-Detection/index.html",
+      "/posts/Classification/index.html",
+      "/posts/Clustering/index.html",
+      "/posts/Linear-And-Nonlinear-Regression/index.html",
+      "/posts/Probability-And-Random-Variables/index.html",
       "/posts/post-with-code/index.html",
       "/posts/welcome/index.html"
     ]
