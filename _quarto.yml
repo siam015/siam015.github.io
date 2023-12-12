@@ -10,8 +10,8 @@ website:
       - about.qmd
       - icon: github
         href: https://github.com/siam015
-      - icon: twitter
-        href: https://twitter.com
+      - icon: linkedin
+        href: https://www.linkedin.com/in/siam-maksud-59780421a/
 format:
   html:
     theme: cosmo

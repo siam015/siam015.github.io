@@ -1,1 +1,15 @@
 /* css styles */
+
+/* Light mode styles (default) */
+body.light-mode {
+    background-color: white;
+    color: black;
+    /* other light mode styles */
+}
+
+/* Dark mode styles */
+body.dark-mode {
+    background-color: black;
+    color: white;
+    /* other dark mode styles */
+}
