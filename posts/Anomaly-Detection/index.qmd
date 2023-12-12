@@ -3,9 +3,7 @@ title: All About Anomaly in Data
 jupyter: python3
 ---
 
-
-
-In this age where data is king, we are awash in a sea of big data, larger and more complex than ever before. Within this vast expanse of information lies a subtle yet critical challenge: the presence of anomalies. Think of anomalies as the rebels of the data world, defying the norms and expectations of typical behavior. These aren't just quirky data points; they're potential game-changers. They can skew our insights, open doors to cyber threats, and lead our carefully calibrated models astray. Identifying and understanding these anomalies isn't just a technical puzzle; it's a crucial quest to safeguard the integrity and efficacy of our data-driven universe. The ability to pinpoint and interpret these unusual patterns is more than a skill—it's an essential armor in the arsenal of any data warrior navigating this ever-expanding digital landscape..
+In this age where data is king, we are awash in a sea of big data, larger and more complex than ever before. Within this vast expanse of information lies a subtle yet critical challenge: the presence of anomalies. Think of anomalies as the rebels of the data world, defying the norms and expectations of typical behavior. These aren't just quirky data points; they're potential game-changers. They can skew our insights, open doors to cyber threats, and lead our carefully calibrated models astray. Identifying and understanding these anomalies isn't just a technical puzzle; it's a crucial quest to safeguard the integrity and efficacy of our data-driven universe. The ability to pinpoint and interpret these unusual patterns is more than a skill---it's an essential armor in the arsenal of any data warrior navigating this ever-expanding digital landscape..
 
 ```{python}
 import seaborn as sns
@@ -42,11 +40,11 @@ plt.show()
 
 ```
 
-The plot showcases how a general anomaly can look like in a data distribution, these anomalies are separated by a threshold. If you look at the plot, it can be very evident that the outliers does not follow the actual pattern. 
+The plot showcases how a general anomaly can look like in a data distribution, these anomalies are separated by a threshold. If you look at the plot, it can be very evident that the outliers does not follow the actual pattern.
 
 ## Machine Learning in Anomaly Detection
 
-Machine learning excels in identifying patterns within datasets, a capability that proves especially useful in anomaly detection. By mastering the art of pattern recognition, machine learning models are not only able to discern regularities in data but also adeptly pinpoint anomalies—those instances that deviate from established norms. Today, I'll introduce you to a particularly effective model designed for this purpose. This model simplifies the complex task of detecting outliers, leveraging advanced algorithms to efficiently identify deviations in any dataset, thus offering a robust solution for a variety of anomaly detection challenges.
+Machine learning excels in identifying patterns within datasets, a capability that proves especially useful in anomaly detection. By mastering the art of pattern recognition, machine learning models are not only able to discern regularities in data but also adeptly pinpoint anomalies---those instances that deviate from established norms. Today, I'll introduce you to a particularly effective model designed for this purpose. This model simplifies the complex task of detecting outliers, leveraging advanced algorithms to efficiently identify deviations in any dataset, thus offering a robust solution for a variety of anomaly detection challenges.
 
 ## DBSCAN
 
@@ -73,7 +71,7 @@ model.get_params(deep=True)
 
 We need to look at one parameter called epsilon (ε). Epsilon is like the detective's line of sight, determining how far he can see around each point. Here we have ε = 0.5
 
-First, maybe we can see if the model can really detect the two wrong data points. We can call them outliers or data anomaly. 
+First, maybe we can see if the model can really detect the two wrong data points. We can call them outliers or data anomaly.
 
 ```{python}
 labels = model.labels_
@@ -120,4 +118,3 @@ eps_values = [0.1, 0.5, 0.7]
 
 plot_dbscan(df, eps_values)
 ```
-

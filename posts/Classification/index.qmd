@@ -1,9 +1,7 @@
 ---
-title: But how do we evaluate classifiers?
+title: But How Do We Evaluate Classifiers?
 jupyter: python3
 ---
-
-
 
 So you have decided to classify stuff i.e. you have a labelled dataset and want your machine learning model to classify the dataset into desired labels. This is wonderful. If you are familiar with Sci-kit learn you can easily fire up few models to do your job. But this begs the question, what is the best model to use for your particular task. And no, it is not the most fancy model with out of the world complexity although it does look like a very attractive option. So how do we decide what is the best? Let's find out together.
 
@@ -57,7 +55,7 @@ X_train, X_test, y_train, y_test = train_test_split(x, y,test_size=.3, random_st
 
 ## Lets fire up the models
 
- Now we get to choose the models we want to evaluate, For demonstration purposes, I am choosing 3 models - **SGD Classifier**, **Decision Tree Classifier** and **Random Forest Classifier**. You can choose any models you want but the framework will be same.
+Now we get to choose the models we want to evaluate, For demonstration purposes, I am choosing 3 models - **SGD Classifier**, **Decision Tree Classifier** and **Random Forest Classifier**. You can choose any models you want but the framework will be same.
 
 ```{python}
 #importing the models
@@ -152,7 +150,7 @@ def plot_confusion_matrices(models, X_train, y_train, X_test, y_test, class_name
 plot_confusion_matrices(models, X_train, y_train, X_test, y_test, class_names)
 ```
 
-As we can see in the figure, SGD had 8 instances where it misclassified **Versicolor** as **Virginica**. So our choice comes to the Decision Tree and Random Forest. Now we did a multiclass classification. Two important metrics are **recall** and **precision**. This concept is better understood in binary classfification. We can make our multiclass problem into binary problem by selecting a class. Maybe we can go with the class **Versicolor**. So, our models are going to predict if an instance represents versicolor or not.  
+As we can see in the figure, SGD had 8 instances where it misclassified **Versicolor** as **Virginica**. So our choice comes to the Decision Tree and Random Forest. Now we did a multiclass classification. Two important metrics are **recall** and **precision**. This concept is better understood in binary classfification. We can make our multiclass problem into binary problem by selecting a class. Maybe we can go with the class **Versicolor**. So, our models are going to predict if an instance represents versicolor or not.
 
 ## Recall and Precision
 
@@ -183,36 +181,38 @@ print("False Negatives: ", FN)
 
 ## Key Attributes of a Confusion Matrix
 
-- **True Positives (TP)**: These are cases in which the model correctly predicts the positive class. In other words, instances where the actual class is positive, and the model also predicts a positive class.
+-   **True Positives (TP)**: These are cases in which the model correctly predicts the positive class. In other words, instances where the actual class is positive, and the model also predicts a positive class.
 
-- **True Negatives (TN)**: These are cases where the model correctly predicts the negative class. This means the actual class is negative, and the model also predicts a negative class.
+-   **True Negatives (TN)**: These are cases where the model correctly predicts the negative class. This means the actual class is negative, and the model also predicts a negative class.
 
-- **False Positives (FP)**: These are instances where the model incorrectly predicts the positive class. This happens when the actual class is negative, but the model predicts a positive class. It is also known as a "Type I error".
+-   **False Positives (FP)**: These are instances where the model incorrectly predicts the positive class. This happens when the actual class is negative, but the model predicts a positive class. It is also known as a "Type I error".
 
-- **False Negatives (FN)**: These are cases where the model incorrectly predicts the negative class. In these instances, the actual class is positive, but the model predicts a negative class. This is also referred to as a "Type II error".
+-   **False Negatives (FN)**: These are cases where the model incorrectly predicts the negative class. In these instances, the actual class is positive, but the model predicts a negative class. This is also referred to as a "Type II error".
 
 ### Precision
-Precision is the ratio of correctly predicted positive observations to the total predicted positive observations. It is a measure of a classifier's exactness. A low precision indicates a high number of false positives. The precision is defined as:
 
+Precision is the ratio of correctly predicted positive observations to the total predicted positive observations. It is a measure of a classifier's exactness. A low precision indicates a high number of false positives. The precision is defined as:
 
 $$ \text{Precision} = \frac{\text{TP}}{\text{TP} + \text{FP}} $$
 
-- **TP (True Positives)**: The number of positive instances correctly identified by the model.
-- **FP (False Positives)**: The number of negative instances incorrectly identified as positive by the moel.
-s.
+-   **TP (True Positives)**: The number of positive instances correctly identified by the model.
+-   **FP (False Positives)**: The number of negative instances incorrectly identified as positive by the moel.
+
+s.  
 
 Precision is particularly important in scenarios where the cost of a false positive is high. For example, in email spam detection, a false positive (non-spam email incorrectly classified as spam) could mean missing an important email.
 
 ### Recall
+
 Recall, also known as sensitivity, is the ratio of correctly predicted positive observations to all observations in the actual class. It is a measure of a classifier's completeness. A low recall indicates a high number of false negatives. The recall is defi$$ \text{Recall} = \frac{\text{TP}}{\text{TP} + \text{FN}} $$
 
-- **TP (True Positives)**: The number of positive instances correctly identified by the model.
-- **FN (False Negatives)**: The number of positive instances incorrectly identified as negative by the model.egatives.
+-   **TP (True Positives)**: The number of positive instances correctly identified by the model.
+-   **FN (False Negatives)**: The number of positive instances incorrectly identified as negative by the model.egatives.
 
 Recall becomes critical in cases where missing an actual positive is significantly worse than getting false positives. For instance, in medical diagnosis, a false negative (missing a disease) could be much more detrimental the positive.an a fals
 
-
 ## Precision-Recall Curve
+
 The Precision-Recall Curve is a plot that illustrates the trade-off between precision and recall for different threshold settings of a classifier. It is used as a tool to select models that balance precision and recall in a desirable way, especially in scenarios with imbalanced datasets.
 
 ```{python}
@@ -255,13 +255,10 @@ plt.show()
 
 Now in a precision recall curve, we look at the top right of the curve. Best model for the purpose will be in that region. That means higher precision with higher recall. The interpretation of the results can be explaines as-
 
+-   **Random Forest (solid blue line)**: This model has the best performance among the three. It maintains a high precision even as recall increases, which means it correctly identifies a high percentage of positive cases and, when it predicts a case to be positive, it is likely correct.
 
-- **Random Forest (solid blue line)**: This model has the best performance among the three. It maintains a high precision even as recall increases, which means it correctly identifies a high percentage of positive cases and, when it predicts a case to be positive, it is likely correct.
+-   **SGD (dashed line)**: The performance of the SGD model varies more than the Random Forest. Its precision starts lower and fluctuates as recall increases. This suggests that the model may not be as reliable in its positive predictions compared to the Random Forest.
 
-- **SGD (dashed line)**: The performance of the SGD model varies more than the Random Forest. Its precision starts lower and fluctuates as recall increases. This suggests that the model may not be as reliable in its positive predictions compared to the Random Forest.
-
-- **Decision Tree (dashed green line)**: The Decision Tree's performance is generally lower than the Random Forest. While it has moments where its precision is high, it also has points where precision drops significantly as recall increases. This might indicate that the Decision Tree model, at certain thresholds, predicts many false positives while trying to capture more true positives.
+-   **Decision Tree (dashed green line)**: The Decision Tree's performance is generally lower than the Random Forest. While it has moments where its precision is high, it also has points where precision drops significantly as recall increases. This might indicate that the Decision Tree model, at certain thresholds, predicts many false positives while trying to capture more true positives.
 
 So there we have it, **Random Forest** can be used for the job at hand! Thank you for reading the blog
-
-
